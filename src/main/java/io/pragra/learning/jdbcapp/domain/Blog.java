@@ -1,0 +1,18 @@
+package io.pragra.learning.jdbcapp.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Data
+public class Blog {
+    private int blogId;
+    private int userId;
+    private String blogName;
+    private String blogCategory;
+    private String blogText;
+}
