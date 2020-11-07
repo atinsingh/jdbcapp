@@ -3,6 +3,7 @@ package io.pragra.learning.jdbcapp.dao;
 
 import io.pragra.learning.jdbcapp.constans.SQLs;
 import io.pragra.learning.jdbcapp.domain.User;
+import io.pragra.learning.jdbcapp.expeceptions.UserNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,7 +19,7 @@ public class UserDao {
 
     public UserDao(JdbcTemplate template) {
         this.template = template;
-        createTable();
+        //createTable();
     }
 
     private void createTable(){
@@ -52,6 +53,12 @@ public class UserDao {
     }
 
     public void deleteUser(int userid){
+        log.info("Deleting table for user with id ", userid);
+        int update = this.template.update("DELETE FROM USER WHERE USER_ID = ? ", userid);
+        if(update==0){
+            log.error("USER ID  {} doesn't exists in Database", userid);
+            throw new UserNotFoundException("No Such USER");
+        }
 
     }
 }
