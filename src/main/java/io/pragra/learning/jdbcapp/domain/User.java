@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.Instant;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -15,5 +16,5 @@ public class User {
     private int id;
     private String userName;
     private String userPass;
-    private Instant createDate;
+    private Date createDate;
 }

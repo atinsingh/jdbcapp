@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.Instant;
+import java.util.Date;
 
 @Slf4j
 @SpringBootApplication
@@ -32,7 +33,7 @@ public class JdbcAppApplication {
     @Bean
     CommandLineRunner runner() {
         return args -> {
-            User user = new User(2,"Ashimit", "sddds32", Instant.now());
+            User user = new User(2,"Ashimit", "sddds32", new Date());
             userDao.createUser(user);
 
             Blog blog = new Blog(3,4,"Learning Angular",2,"Reference Documentation\n" +
