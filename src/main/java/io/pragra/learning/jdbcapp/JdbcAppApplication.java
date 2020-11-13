@@ -2,6 +2,7 @@ package io.pragra.learning.jdbcapp;
 
 import io.pragra.learning.jdbcapp.dao.BlogDao;
 import io.pragra.learning.jdbcapp.dao.UserDao;
+import io.pragra.learning.jdbcapp.domain.Blog;
 import io.pragra.learning.jdbcapp.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -34,8 +35,10 @@ public class JdbcAppApplication {
             User user = new User(2,"Ashimit", "sddds32", Instant.now());
             userDao.createUser(user);
 
-            log.info("Blogs: {}" , blogDao.getAllBlog());
+            Blog blog = new Blog(3,4,"Learning Angular",2,"Reference Documentation\n" +
+                    "For further reference, please consider the following sections:");
             //userDao.deleteUser(2);
+            blogDao.createBlog(blog);
         };
     }
 

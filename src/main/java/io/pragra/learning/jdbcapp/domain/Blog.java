@@ -13,6 +13,6 @@ public class Blog {
     private int blogId;
     private int userId;
     private String blogName;
-    private String blogCategory;
+    private int blogCategory;
     private String blogText;
 }
